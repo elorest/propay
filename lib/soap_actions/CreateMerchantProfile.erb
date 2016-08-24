@@ -1,0 +1,28 @@
+<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:con="http://propay.com/SPS/contracts" xmlns:typ="http://propay.com/SPS/types" xmlns:prop="http://schemas.datacontract.org/2004/07/Propay.Contracts.SPS.External">
+  <soapenv:Header/>
+  <soapenv:Body>
+    <con:CreateMerchantProfile>
+      <con:identification>
+              <%= @partial %>
+      </con:identification>
+      <con:merchantProfile>
+        <prop:PaymentProcessor>LegacyProPay</prop:PaymentProcessor>
+        <prop:ProcessorData>
+          <prop:ProcessorDatum>
+            <prop:ProcessorField>certStr</prop:ProcessorField>
+            <prop:Value>4986d9d70264d409133e87bb7f31b0</prop:Value>
+          </prop:ProcessorDatum>
+          <prop:ProcessorDatum>
+            <prop:ProcessorField>termId</prop:ProcessorField>
+            <prop:Value>b7f31b0</prop:Value>
+          </prop:ProcessorDatum>
+          <prop:ProcessorDatum>
+            <prop:ProcessorField>accountNum</prop:ProcessorField>
+            <prop:Value><%= @options[:account_number] %></prop:Value>
+          </prop:ProcessorDatum>
+        </prop:ProcessorData>
+        <prop:ProfileName><%= @options[:name] %></prop:ProfileName>
+      </con:merchantProfile>
+    </con:CreateMerchantProfile>
+  </soapenv:Body>
+</soapenv:Envelope>

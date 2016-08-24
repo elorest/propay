@@ -1,0 +1,7 @@
+<% if Rails && Rails.env.production? %>
+  <typ:AuthenticationToken><%= @configuration.authentication_token %></typ:AuthenticationToken>
+  <typ:BillerAccountId><%= @configuration.biller_account_id %></typ:BillerAccountId>
+<% else %>
+  <typ:AuthenticationToken><%= @configuration.test_authentication_token %></typ:AuthenticationToken>
+  <typ:BillerAccountId><%= @configuration.test_biller_account_id %></typ:BillerAccountId>
+<% end %>

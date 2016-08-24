@@ -1,0 +1,20 @@
+<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:con="http://propay.com/SPS/contracts" xmlns:typ="http://propay.com/SPS/types">
+  <soapenv:Header/>
+  <soapenv:Body>
+    <con:CapturePayment>
+      <con:id>
+              <%= @partial %>
+      </con:id>
+      <con:transaction>
+        <typ:Amount><%= @options[:amount] %></typ:Amount>
+        <typ:Comment1><%= @options[:comment] %></typ:Comment1>
+        <typ:Comment2><%= @options[:comment2] %></typ:Comment2>
+        <typ:CurrencyCode>USD</typ:CurrencyCode>
+        <typ:Invoice></typ:Invoice>
+        <typ:MerchantProfileId><%= @options[:merchant_profile_id] %></typ:MerchantProfileId>
+        <typ:PayerAccountId><%= @options[:payer_id] %></typ:PayerAccountId>
+      </con:transaction>
+      <con:originalTransactionID><%= @options[:transaction_id] %></con:originalTransactionID>
+    </con:CapturePayment>
+  </soapenv:Body>
+</soapenv:Envelope>

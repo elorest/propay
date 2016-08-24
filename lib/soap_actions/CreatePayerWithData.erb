@@ -1,0 +1,16 @@
+<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:con="http://propay.com/SPS/contracts" xmlns:typ="http://propay.com/SPS/types">
+  <soapenv:Header/>
+  <soapenv:Body>
+    <con:CreatePayerWithData>
+      <con:identification>
+        <%= @partial %>
+      </con:identification>
+      <con:data>
+        <typ:EmailAddress><%= @options[:email] %></typ:EmailAddress>
+        <typ:ExternalId1><%= @options[:type] %></typ:ExternalId1>
+        <typ:ExternalId2><%= @options[:id] %></typ:ExternalId2>
+        <typ:Name><%= @options[:name] %></typ:Name>
+      </con:data>
+    </con:CreatePayerWithData>
+  </soapenv:Body>
+</soapenv:Envelope>

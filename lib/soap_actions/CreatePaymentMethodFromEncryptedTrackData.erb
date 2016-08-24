@@ -1,0 +1,21 @@
+<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:con="http://propay.com/SPS/contracts" xmlns:typ="http://propay.com/SPS/types"
+xmlns:prop="http://schemas.datacontract.org/2004/07/Propay.Contracts.SPS.External" xmlns:prop1="http://schemas.datacontract.org/2004/07/Propay.Contracts.Common.Structures">
+<soapenv:Header/>
+<soapenv:Body>
+<con:CreatePaymentMethodFromEncryptedTrackData>
+<con:identification>
+        <%= @partial %>
+</con:identification>
+<con:request>
+<prop:Description>test 03042011</prop:Description>
+<prop:EncryptedTrackData>
+<prop1:DeviceType>MagTekM20</prop1:DeviceType>
+<prop1:EncryptedTrack2Data>acUx7zcRE8AhyJKZIaOVAxFDQbvO4LRfW/qBjvUzZ3unR0HWgu6LKQ==</prop1:EncryptedTrack2Data>
+<prop1:EncryptedTrackData>7W0pjXRuLlZxEE6ZrHJKHZjK9Xyxfi3Gf56qZxwYCjCU5isNKya/TKiyNcchQP6Ak24rZw9z2loPo05vE2XLag==</prop1:EncryptedTrackData>
+<prop1:KeySerialNumber>kBAkCwBgHQAAXA==</prop1:KeySerialNumber>
+</prop:EncryptedTrackData>
+<prop:PayerAccountId>2251089291610520</prop:PayerAccountId>
+</con:request>
+</con:CreatePaymentMethodFromEncryptedTrackData>
+</soapenv:Body>
+</soapenv:Envelope>

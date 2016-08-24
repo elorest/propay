@@ -1,0 +1,16 @@
+<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:con="http://propay.com/SPS/contracts" xmlns:typ="http://propay.com/SPS/types"
+xmlns:prop="http://schemas.datacontract.org/2004/07/Propay.Contracts.SPS.External">
+<soapenv:Header/>
+<soapenv:Body>
+<con:RefundPaymentV2>
+<con:id>
+        <%= @partial %>
+</con:id>
+<con:request>
+  <prop:Amount><%= @options[:amount] %></prop:Amount>
+  <prop:MerchantProfileId><%= @options[:merchant_profile_id] %></prop:MerchantProfileId>
+  <prop:OriginalTransactionId><%= @options[:transaction_id] %></prop:OriginalTransactionId>
+</con:request>
+</con:RefundPaymentV2>
+</soapenv:Body>
+</soapenv:Envelope>

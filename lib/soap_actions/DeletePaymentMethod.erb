@@ -1,0 +1,12 @@
+<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:con="http://propay.com/SPS/contracts" xmlns:typ="http://propay.com/SPS/types">
+  <soapenv:Header/>
+  <soapenv:Body>
+    <con:DeletePaymentMethod>
+      <con:identification>
+        <%= @partial %>
+      </con:identification>
+      <con:payerAccountId><%= @options[:payer_id] %></con:payerAccountId>
+      <con:paymentID><%= @options[:payment_method_id] %></con:paymentID>
+    </con:DeletePaymentMethod>
+  </soapenv:Body>
+</soapenv:Envelope>

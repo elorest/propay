@@ -1,0 +1,36 @@
+<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:con="http://propay.com/SPS/contracts" xmlns:typ="http://propay.com/SPS/types"
+xmlns:prop="http://schemas.datacontract.org/2004/07/Propay.Contracts.SPS.External" xmlns:prop1="http://schemas.datacontract.org/2004/07/Propay.Contracts.Common.Structures">
+<soapenv:Header/>
+<soapenv:Body>
+<con:ProcessSplitPayTransactionWithEncryptedTrackData>
+<con:id>
+        <%= @partial %>
+</con:id>
+<con:request>
+<prop:CreatePaymentMethodDuplicateAction>SaveNew</prop:CreatePaymentMethodDuplicateAction>
+<prop:EncryptedTrackData>
+<prop1:DeviceType>MagTekM20</prop1:DeviceType>
+<prop1:EncryptedTrack2Data>acUx7zcRE8AhyJKZIaOVAxFDQbvO4LRfW/qBjvUzZ3unR0HWgu6LKQ==</prop1:EncryptedTrack2Data>
+<prop1:EncryptedTrackData>7W0pjXRuLlZxEE6ZrHJKHZjK9Xyxfi3Gf56qZxwYCjCU5isNKya/TKiyNcchQP6Ak24rZw9z2loPo05vE2XLag==</prop1:EncryptedTrackData>
+<prop1:KeySerialNumber>kBAkCwBgHQAAXA==</prop1:KeySerialNumber>
+</prop:EncryptedTrackData>
+<prop:SecondaryTransaction>
+<prop:Amount>100</prop:Amount>
+<prop:OriginatingAccountId>3110311</prop:OriginatingAccountId>
+<prop:ReceivingAccountId>3110312</prop:ReceivingAccountId>
+</prop:SecondaryTransaction>
+<prop:ShouldCreatePaymentMethod>true</prop:ShouldCreatePaymentMethod>
+<prop:StorageInformation>
+<prop:AccountName>test 03042011</prop:AccountName>
+<prop:Description>test 03042011</prop:Description>
+</prop:StorageInformation>
+<prop:Transaction>
+<typ:Amount>1000</typ:Amount>
+<typ:CurrencyCode>USD</typ:CurrencyCode>
+<typ:Invoice>test03072011a</typ:Invoice>
+<typ:PayerAccountId>5439755540195690</typ:PayerAccountId>
+</prop:Transaction>
+</con:request>
+</con:ProcessSplitPayTransactionWithEncryptedTrackData>
+</soapenv:Body>
+</soapenv:Envelope>

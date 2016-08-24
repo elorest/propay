@@ -1,0 +1,18 @@
+<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:con="http://propay.com/SPS/contracts" xmlns:typ="http://propay.com/SPS/types">
+  <soapenv:Header/>
+  <soapenv:Body>
+    <con:GetTempToken>
+      <con:tempTokenRequest>
+        <typ:Identification>
+          <%= @partial %>
+        </typ:Identification>
+        <typ:PayerInfo>
+          <typ:Id><%= options[:payer_id] %></typ:Id>
+        </typ:PayerInfo>
+        <typ:TokenProperties>
+          <typ:DurationSeconds><%= options[:duration] %></typ:DurationSeconds>
+        </typ:TokenProperties>
+      </con:tempTokenRequest>
+    </con:GetTempToken>
+  </soapenv:Body>
+</soapenv:Envelope>

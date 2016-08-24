@@ -1,0 +1,27 @@
+<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:con="http://propay.com/SPS/contracts" xmlns:typ="http://propay.com/SPS/types">
+  <soapenv:Header/>
+  <soapenv:Body>
+    <con:EditPaymentMethod>
+      <con:identification>
+        <%= @partial %>
+      </con:identification>
+      <con:pmu>
+        <typ:AccountName>?</typ:AccountName>
+        <typ:BankAccountType>?</typ:BankAccountType>
+        <typ:BillingInformation>
+          <typ:Address1>?</typ:Address1>
+          <typ:Address2>?</typ:Address2>
+          <typ:Address3>?</typ:Address3>
+          <typ:City>?</typ:City>
+          <typ:Country>?</typ:Country>
+          <typ:State>?</typ:State>
+          <typ:ZipCode>?</typ:ZipCode>
+        </typ:BillingInformation>
+        <typ:Description>?</typ:Description>
+        <typ:ExpirationDate>?</typ:ExpirationDate>
+        <typ:PayerAccountId>?</typ:PayerAccountId>
+        <typ:PaymentMethodID>?</typ:PaymentMethodID>
+      </con:pmu>
+    </con:EditPaymentMethod>
+  </soapenv:Body>
+</soapenv:Envelope>

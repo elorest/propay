@@ -1,0 +1,27 @@
+<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:con="http://propay.com/SPS/contracts" xmlns:typ="http://propay.com/SPS/types">
+  <soapenv:Header/>
+  <soapenv:Body>
+    <con:CreatePaymentMethod>
+      <con:identification>
+        <%= @partial %>
+      </con:identification>
+      <con:pmAdd>
+        <typ:AccountCountryCode><%= @options[:country_code] %></typ:AccountCountryCode>
+        <typ:AccountName><%= @options[:name] %></typ:AccountName>
+        <typ:AccountNumber><%= @options[:card_number] %></typ:AccountNumber>
+        <typ:BillingInformation>
+          <typ:Address1><%= @options[:address] %></typ:Address1>
+          <typ:City><%= @options[:address2] %></typ:City>
+          <typ:Country><%= @options[:country] %></typ:Country>
+          <typ:State><%= @options[:state] %></typ:State>
+          <typ:ZipCode><%= @options[:zip] %></typ:ZipCode>
+        </typ:BillingInformation>
+        <typ:Description><%= @options[:description] %></typ:Description>
+        <typ:ExpirationDate><%= @options[:expiration].gsub(/\D/,"") rescue "" %></typ:ExpirationDate>
+        <typ:PayerAccountId><%= @options[:payer_id] %></typ:PayerAccountId>
+        <typ:PaymentMethodType><%= @options[:card_type] %></typ:PaymentMethodType>
+        <typ:DuplicateAction>RETURNDUP</typ:DuplicateAction>
+      </con:pmAdd>
+    </con:CreatePaymentMethod>
+  </soapenv:Body>
+</soapenv:Envelope>

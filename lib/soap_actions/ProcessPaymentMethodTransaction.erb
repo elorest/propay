@@ -1,0 +1,36 @@
+<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:con="http://propay.com/SPS/contracts" xmlns:typ="http://propay.com/SPS/types"
+                  xmlns:prop="http://schemas.datacontract.org/2004/07/Propay.Contracts.SPS.External">
+  <soapenv:Header/>
+  <soapenv:Body>
+    <con:ProcessPaymentMethodTransaction>
+      <con:id>
+        <%= @partial %>
+      </con:id>
+      <con:transaction>
+        <typ:Amount><%= @options[:amount] %></typ:Amount>
+        <typ:Comment1><%= @options[:comment] %></typ:Comment1>
+        <typ:Comment2><%= @options[:comment2] %></typ:Comment2>
+        <typ:CurrencyCode>USD</typ:CurrencyCode>
+        <typ:Invoice></typ:Invoice>
+        <typ:MerchantProfileId><%= @options[:merchant_profile_id] %></typ:MerchantProfileId>
+        <typ:PayerAccountId><%= @options[:payer_id] %></typ:PayerAccountId>
+      </con:transaction>
+      <con:paymentMethodID><%= @options[:payment_method_id] %></con:paymentMethodID>
+      <con:optionalPaymentInfoOverrides>
+        <prop:CreditCard>
+          <prop:Billing>
+            <typ:Address1></typ:Address1>
+            <typ:Address2></typ:Address2>
+            <typ:Address3></typ:Address3>
+            <typ:City></typ:City>
+            <typ:Country></typ:Country>
+            <typ:State></typ:State>
+            <typ:ZipCode></typ:ZipCode>
+          </prop:Billing>
+          <prop:ExpirationDate></prop:ExpirationDate>
+          <prop:FullName></prop:FullName>
+        </prop:CreditCard>
+      </con:optionalPaymentInfoOverrides>
+    </con:ProcessPaymentMethodTransaction>
+  </soapenv:Body>
+</soapenv:Envelope>

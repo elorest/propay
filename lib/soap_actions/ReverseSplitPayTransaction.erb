@@ -1,0 +1,18 @@
+<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:con="http://propay.com/SPS/contracts" xmlns:typ="http://propay.com/SPS/types"
+xmlns:prop="http://schemas.datacontract.org/2004/07/Propay.Contracts.SPS.External">
+<soapenv:Header/>
+<soapenv:Body>
+<con:ReverseSplitPayTransaction>
+<con:id>
+        <%= @partial %>
+</con:id>
+<con:request>
+<prop:CreditCardReversalAmount>?</prop:CreditCardReversalAmount>
+<prop:PropayToPropayAccountId>?</prop:PropayToPropayAccountId>
+<prop:PropayToPropayReversalAmount>?</prop:PropayToPropayReversalAmount>
+<prop:RequireCreditCardRefund>true</prop:RequireCreditCardRefund>
+<prop:TransactionId>4</prop:TransactionId>
+</con:request>
+</con:ReverseSplitPayTransaction>
+</soapenv:Body>
+</soapenv:Envelope>
